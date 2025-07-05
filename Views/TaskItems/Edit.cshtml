@@ -1,0 +1,31 @@
+﻿@model TaskManager.Models.TaskItem
+
+<div class="container">
+	<form asp-action="edit" method="post">
+		<div>
+			<label asp-for="Title" class="form-label"></label>
+			<input asp-for="Title" class="form-control" />
+		</div>
+		<div>
+			<label asp-for="Description" class="form-label"></label>
+			<input asp-for="Description" class="form-control" />
+		</div>
+		<div>
+			<label asp-for="DueDate" class="form-label"></label>
+			<input asp-for="DueDate" class="form-control" />
+		</div>
+		<div>
+			<label asp-for="IsCompleted" class="form-label"></label>
+			<input type="checkbox" asp-for="IsCompleted" class="form-check" />
+		</div>
+		<div>
+			<label asp-for="CreatedAt" class="form-label"></label>
+			<input asp-for="CreatedAt" class="form-control" />
+		</div>
+		<div>
+			<label asp-for="CompletedAt" class="form-label"></label>
+			<input asp-for="CompletedAt" class="form-control" />
+		</div>
+		<button type="submit" class="btn btn-primary">Save Changes</button>
+	</form>
+</div>
