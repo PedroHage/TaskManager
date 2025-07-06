@@ -53,5 +53,12 @@ namespace TaskManager.Controllers
             }
             return View(taskItem);
         }
+
+        public async Task<IActionResult> ToggleCompletion(int id)
+        {
+            await _taskItemsService.ToggleCompletion(id);
+            return RedirectToAction("Index");
+        }
+        
     }
 }

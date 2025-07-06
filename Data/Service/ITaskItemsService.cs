@@ -7,5 +7,7 @@ namespace TaskManager.Data.Service
         Task<IEnumerable<TaskItem>> GetAllAsync();
         Task AddAsync(TaskItem taskItem);
         Task EditAsync(TaskItem taskItem);
+        Task<TaskItem> GetTaskAsync(int id);
+        Task ToggleCompletion(int id);
     }
 }
