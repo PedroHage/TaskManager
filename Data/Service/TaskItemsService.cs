@@ -18,7 +18,7 @@ namespace TaskManager.Data.Service
 
         public async Task EditAsync(TaskItem taskItem)
         {
-            var existingTask = GetTaskAsync(taskItem.Id).Result;
+            var existingTask = await GetTaskAsync(taskItem.Id);
             existingTask.Title = taskItem.Title;
             existingTask.Description = taskItem.Description;
             existingTask.DueDate = taskItem.DueDate;
@@ -26,6 +26,13 @@ namespace TaskManager.Data.Service
             existingTask.CompletedAt = taskItem.IsCompleted ? DateTime.Now : null;
             await _context.SaveChangesAsync();
             
+        }
+
+        public async Task DeleteTask(int id)
+        {
+            var taskItem =  await GetTaskAsync(id);
+            _context.Remove(taskItem);
+            await _context.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<TaskItem>> GetAllAsync()

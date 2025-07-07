@@ -5,7 +5,8 @@
 }
 
 <h1>Tasks</h1>
-<div class="container">
+<div class="container d-flex flex-column gap-2">
+	<a href="@Url.Action("Add", "TaskItems")" class="btn btn-secondary btn-sm align-self-start">Add Task</a>
 	<table class="table table-bordered">
 		<thead class="table-light">
 			<tr>
@@ -18,7 +19,7 @@
 		<tbody>
 			@foreach(var task in Model)
 			{
-				<tr>
+				<tr class="@(task.IsCompleted ? "table-success" : (task.DueDate < DateTime.Now ? "table-danger" : ""))">
 					<td onclick="window.location='@Url.Action("Edit", "TaskItems", new { id = task.Id })'" style="cursor:pointer">@task.Title</td>
 					<td>@task.Description</td>
 					<td>@(task.DueDate != null ? ((DateTime)task.DueDate).ToString("d") : "")</td>

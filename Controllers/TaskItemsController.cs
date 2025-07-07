@@ -60,5 +60,10 @@ namespace TaskManager.Controllers
             return RedirectToAction("Index");
         }
         
+        public async Task<IActionResult> DeleteTask(int id)
+        {
+            await _taskItemsService.DeleteTask(id);
+            return RedirectToAction("Index");
+        }
     }
 }

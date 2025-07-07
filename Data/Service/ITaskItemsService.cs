@@ -9,5 +9,6 @@ namespace TaskManager.Data.Service
         Task EditAsync(TaskItem taskItem);
         Task<TaskItem> GetTaskAsync(int id);
         Task ToggleCompletion(int id);
+        Task DeleteTask(int id);
     }
 }
